@@ -6,14 +6,26 @@ public static class Arrays
     /// integer greater than 0.
     /// </summary>
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
+    
     public static double[] MultiplesOf(double number, int length)
     {
+
         // TODO Problem 1 Start
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        // step 1: create an array of doubles of the correct length
+        double[] multiples = new double[length];
+
+        // step 2: use a loop to fill in each position in the array with the correct multiple of the number
+        for (int i = 0; i < length; i++)
+        {
+            multiples[i] = number * (i + 1);
+        }
+
+        // step 3: return the array
+        return multiples;
     }
 
     /// <summary>
@@ -29,5 +41,12 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        // step 1: create a new list to hold the rotated values
+        List<int> rotated = new List<int>(data.Count);
+        for (int i = 0; i < data.Count; i++)
+        {
+            rotated.Add(0); // Initialize with dummy values
+        }
     }
 }

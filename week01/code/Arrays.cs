@@ -43,10 +43,21 @@ public static class Arrays
         // be implemented by another person.
 
         // step 1: create a new list to hold the rotated values
-        List<int> rotated = new List<int>(data.Count);
+        List<int> rotated = new List<int>(new int [data.Count]);
+
+        //step 2: loop through the original list and add the elements to the new list in the correct order
         for (int i = 0; i < data.Count; i++)
         {
-            rotated.Add(0); // Initialize with dummy values
+            //step 3: calculate the new index for each element and add it to the new list
+            int newIndex = (i + amount) % data.Count;
+            //4: place the element at the new index in the new list
+            rotated[newIndex] = data[i];
         }
+        //5: copy the ortated value back to the original list 
+        for (int i = 0; i < data.Count; i++)
+        {
+            data[i] = rotated[i];
+        }
+      
     }
 }

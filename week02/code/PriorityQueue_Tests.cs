@@ -8,7 +8,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: 
     // Expected Result: 
-    // Defect(s) Found: no test was implemented.
+    // Defect(s) Found: test failed expect charlie but actual is bob
     public void TestPriorityQueue_1()
     {
         var priorityQueue = new PriorityQueue();
@@ -26,7 +26,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: 
     // Expected Result: 
-    // Defect(s) Found: 
+    // Defect(s) Found:  test failed expect b but actual is c
     public void TestPriorityQueue_2()
     {
         var priorityQueue = new PriorityQueue();

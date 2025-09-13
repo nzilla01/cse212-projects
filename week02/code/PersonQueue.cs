@@ -15,7 +15,7 @@ public class PersonQueue
     {
         _queue.Insert(0, person);
     }
-
+    
     public Person Dequeue()
     {
         var person = _queue[0];

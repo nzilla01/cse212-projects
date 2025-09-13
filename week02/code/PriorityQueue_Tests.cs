@@ -8,11 +8,19 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: 
     // Expected Result: 
-    // Defect(s) Found: 
+    // Defect(s) Found: no test was implemented.
     public void TestPriorityQueue_1()
     {
         var priorityQueue = new PriorityQueue();
-        Assert.Fail("Implement the test case and then remove this.");
+        priorityQueue.Enqueue("Alice", 10);
+        priorityQueue.Enqueue("Bob", 22);
+        priorityQueue.Enqueue("Charlie", 50);
+
+        Assert.AreEqual("Charlie", priorityQueue.Dequeue());
+        Assert.AreEqual("Bob", priorityQueue.Dequeue());
+        Assert.AreEqual("Alice", priorityQueue.Dequeue());
+       
+        // Assert.Fail("Implement the test case and then remove this.");
     }
 
     [TestMethod]
@@ -22,6 +30,16 @@ public class PriorityQueueTests
     public void TestPriorityQueue_2()
     {
         var priorityQueue = new PriorityQueue();
+
+        priorityQueue.Enqueue("A", 2);
+        priorityQueue.Enqueue("B", 5);
+        priorityQueue.Enqueue("C", 5);
+        priorityQueue.Enqueue("D", 1);
+
+       Assert.AreEqual("B", priorityQueue.Dequeue()); 
+       Assert.AreEqual("C", priorityQueue.Dequeue()); 
+       Assert.AreEqual("A", priorityQueue.Dequeue()); 
+       Assert.AreEqual("D", priorityQueue.Dequeue()); 
         Assert.Fail("Implement the test case and then remove this.");
     }
 

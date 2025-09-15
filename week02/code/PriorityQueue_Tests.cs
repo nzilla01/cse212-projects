@@ -12,16 +12,15 @@ public class PriorityQueueTests
     public void TestPriorityQueue_1()
     {
         var priorityQueue = new PriorityQueue();
-        priorityQueue.Enqueue("Alice", 10);
-        priorityQueue.Enqueue("Bob", 22);
-        priorityQueue.Enqueue("Charlie", 50);
+        priorityQueue.Enqueue("Bob", 3);
+        priorityQueue.Enqueue("Charlie", 2);
+        priorityQueue.Enqueue("Alice", 1);
 
-        Assert.AreEqual("Charlie", priorityQueue.Dequeue());
-        Assert.AreEqual("Bob", priorityQueue.Dequeue());
-        Assert.AreEqual("Alice", priorityQueue.Dequeue());
-       
-        // Assert.Fail("Implement the test case and then remove this.");
+        Assert.AreEqual("Bob", priorityQueue.Dequeue());     // Highest priority (3)
+        Assert.AreEqual("Charlie", priorityQueue.Dequeue()); // Next highest (2)
+        Assert.AreEqual("Alice", priorityQueue.Dequeue());   // Lowest (1)
     }
+
 
     [TestMethod]
     // Scenario: 
@@ -30,18 +29,26 @@ public class PriorityQueueTests
     public void TestPriorityQueue_2()
     {
         var priorityQueue = new PriorityQueue();
-
         priorityQueue.Enqueue("A", 2);
         priorityQueue.Enqueue("B", 5);
         priorityQueue.Enqueue("C", 5);
         priorityQueue.Enqueue("D", 1);
 
-       Assert.AreEqual("B", priorityQueue.Dequeue()); 
-       Assert.AreEqual("C", priorityQueue.Dequeue()); 
-       Assert.AreEqual("A", priorityQueue.Dequeue()); 
-       Assert.AreEqual("D", priorityQueue.Dequeue()); 
-        Assert.Fail("Implement the test case and then remove this.");
+        Assert.AreEqual("B", priorityQueue.Dequeue()); // Highest priority (5), first in
+        Assert.AreEqual("C", priorityQueue.Dequeue()); // Next highest (5), second in
+        Assert.AreEqual("A", priorityQueue.Dequeue()); // Next highest (2)
+        Assert.AreEqual("D", priorityQueue.Dequeue()); // Lowest (1)
     }
 
     // Add more test cases as needed below.
+    
+     [TestMethod]
+    // Scenario: Dequeue from an empty queue.
+    // Expected Result: Throws InvalidOperationException with message "The queue is empty."
+    // Defect(s) Found: No defect found if exception is thrown correctly.
+    public void TestPriorityQueue_Empty()
+    {
+        var priorityQueue = new PriorityQueue();
+        Assert.ThrowsException<InvalidOperationException>(() => priorityQueue.Dequeue(), "The queue is empty.");
+    }
 }

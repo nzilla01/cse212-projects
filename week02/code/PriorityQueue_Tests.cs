@@ -45,7 +45,7 @@ public class PriorityQueueTests
      [TestMethod]
     // Scenario: Dequeue from an empty queue.
     // Expected Result: Throws InvalidOperationException with message "The queue is empty."
-    // Defect(s) Found: No defect found if exception is thrown correctly.
+    // Defect(s) Found: No defect found .
     public void TestPriorityQueue_Empty()
     {
         var priorityQueue = new PriorityQueue();

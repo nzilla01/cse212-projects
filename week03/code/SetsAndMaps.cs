@@ -35,7 +35,7 @@ public static class SetsAndMaps
                 result.Add($"{reversed} & {word}");
             }
 
-           seen.Add(word); // Mark the original word as seen
+            seen.Add(word); // Mark the original word as seen
         }
         return result.ToArray();
     }
@@ -156,18 +156,22 @@ public static class SetsAndMaps
         // on those classes so that the call to Deserialize above works properly.
         // 2. Add code below to create a string out each place a earthquake has happened today and its magitude.
         // 3. Return an array of these string descriptions.
+        var result = new List<string>(); // Declare result here, outside the if block
 
-        if (featureCollection == null || featureCollection.Features == null)
+        if (featureCollection != null && featureCollection.Features != null)
         {
-            var result = new List<String>();
             foreach (var feature in featureCollection.Features)
             {
-                String place = feature.Properties.Place ?? "Unknown location";
-                String mag = feature.Properties.Mag.HasValue ? feature.Properties.Mag?.ToString() : "N/A";
-                result.Add($"Place: {place}, Magnitude: {mag}");
+                if (feature?.Properties != null)
+                {
+                    string place = feature.Properties.Place ?? "Unknown location";
+                    string mag = feature.Properties.Mag?.ToString("0.00") ?? "N/A";
+                    result.Add($"{place} - Mag {mag}"); // Use the required format
+                }
             }
         }
 
         return result.ToArray();
     }
-    }
+    
+}
